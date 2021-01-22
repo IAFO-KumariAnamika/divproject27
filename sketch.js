@@ -3,11 +3,9 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+var roof,bob1,bob2,bob3,bob4,bob5,rope1,rope2,rope3,rope4,rope5;
 
-function preload()
-{
-	
-}
+
 
 function setup() {
 	createCanvas(800, 700);
@@ -17,37 +15,25 @@ function setup() {
 	world = engine.world;
 
 	roof=new Roof(350,100,300,30);
-	World.add(world,roof);
+
 
 	
 	
 	bob1=new Bob(250,300);
-	World.add(world,bob1);
-	bob2=new Bob(300,300);
-	World.add(world,bob2);
-	bob3=new  Bob(350,300);
-	World.add(world,bob3);
-	bob4=new Bob(400,300);
-	World.add(world,bob4);
-	bob5=new Bob(450,300);
-	World.add(world,bob5);
+    bob2=new Bob(300,300);
+    bob3=new Bob(350,300);
+    bob4=new Bob(400,300);
+    bob5=new Bob(450,300);
+
 
 
 
 	rope1=new Rope(bob1.body,roof.body,-100,0);
-	World.add(world,rope1);
-
-	rope2=new Rope(bob2.body,roof.body-50,0);
-	World.add(world,rope2);
-	
+    rope2=new Rope(bob2.body,roof.body,-50,0);
 	rope3=new Rope(bob3.body,roof.body,0,0);
-	World.add(world,rope3);
-
-	rope4=new Rope(bob4.body,roof.body+50,0);
-	World.add(world,rope4);
+    rope4=new Rope(bob4.body,roof.body,50,0);
+    rope5=new Rope(bob5.body,roof.body,100,0);
 	
-	rope5=new Rope(bob5.body,roof.body,0,0);
-	World.add(world,rope5);
 
 
 
@@ -80,14 +66,13 @@ function draw() {
 	rope4.display();
 	rope5.display();
 	
- drawSprites();
- keyPressed();
+drawSprites();
 
 }
 
 function keyPressed(){
 	if(keyCode===32){
-		Matter.Body.applyForce(bob1.body,bob1.body.position,{x:-730,y:0});
+		Matter.Body.applyForce(bob1.body,bob1.body.position,{x:-45,y:0});
 	}
 }
 
